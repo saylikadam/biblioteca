@@ -22,4 +22,16 @@ public class LibraryTest extends TestCase{
         expected.add(new Book("HP", "JK Rowling"));
         assertTrue(expected.containsAll(lib.getAllBooks()));
     }
+
+    public void testShouldTakeBookListOptionAndProvideBookList () {
+        List<Book> expected = new ArrayList<Book>();
+        expected.add(new Book("HP", "JK Rowling"));
+        assertTrue(expected.containsAll(lib.actOn("List Books")));
+    }
+
+    public void testShouldGiveErrorOnInvalidOption () {
+        List<Book> expected = new ArrayList<Book>();
+        expected.add(new Book("HP", "JK Rowling"));
+        assertNull(lib.actOn("Invalid Option"));
+    }
 }
