@@ -6,11 +6,13 @@ package com.twu.biblioteca;
 public class Book {
     private final String name;
     private final String writer;
+    private final String year;
 
-    public Book(String name, String writer) {
+    public Book(String name, String writer, String year) {
 
         this.name = name;
         this.writer = writer;
+        this.year =year;
     }
 
     @Override
@@ -32,4 +34,13 @@ public class Book {
         result = 31 * result + (writer != null ? writer.hashCode() : 0);
         return result;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Book{" +
+//                "name='" + name + '\'' +
+//                ", writer='" + writer + '\'' +
+//                ", year='" + year + '\'' +
+//                '}';
+//    }
 }
