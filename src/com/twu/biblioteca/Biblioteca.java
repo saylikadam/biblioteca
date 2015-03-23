@@ -13,7 +13,7 @@ public class Biblioteca {
         }
     }
 
-    private void printTitle() {
+    private void printHeader() {
         System.out.println("BookName    AuthorName    PublishingYear");
         System.out.println("----------------------------------------");
     }
@@ -27,7 +27,7 @@ public class Biblioteca {
             System.out.println("Select a valid option");
         }
         else {
-            printTitle();
+            printHeader();
             printBookDetails();
         }
     }
