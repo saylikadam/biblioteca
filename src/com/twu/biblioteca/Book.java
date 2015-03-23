@@ -31,4 +31,8 @@ public class Book {
     public String bookDetails() {
         return name+"    "+writer+"    "+year;
     }
+
+    public boolean isName(String bookName) {
+        return name == bookName;
+    }
 }

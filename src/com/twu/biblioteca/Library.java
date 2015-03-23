@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Library {
@@ -16,13 +15,6 @@ public class Library {
         return bookList;
     }
 
-    public List<Book> actOn(String option) {
-        if(option.equals("List Books")){
-            return bookList;
-        }
-        return null;
-    }
-
     public void addBook(Book book){
         bookList.add(book);
     }
@@ -34,4 +26,14 @@ public class Library {
         addBook(new Book("Five Point Someone", "Chetan Bhagat", "1990"));
         return bookList;
     }
+
+    public Book getParticularBook(String bookName) {
+        for (Book book : bookList) {
+            if(book.isName(bookName)){
+                return book;
+            }
+        }
+        return null;
+    }
+
 }
