@@ -32,12 +32,8 @@ public class Biblioteca {
 
     private void menuHandler() {
         Scanner scan = new Scanner(System.in);
-        try {
-            printMenuOption();
-            optionHandler(scan.nextInt());
-        }catch(Exception e){
-            System.out.println("OOPS!!! Some unknown error occurred!!\n" + e);
-        }
+        printMenuOption();
+        optionHandler(scan.nextInt());
     }
 
     private void printMenuOption(){
