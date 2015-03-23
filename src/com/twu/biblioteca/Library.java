@@ -30,10 +30,10 @@ public class Library {
     public Book getParticularBook(String bookName) {
         for (Book book : bookList) {
             if(book.isName(bookName)){
+                bookList.remove(book);
                 return book;
             }
         }
         return null;
     }
-
 }

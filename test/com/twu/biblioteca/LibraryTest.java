@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
 import junit.framework.TestCase;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ankurks on 3/21/2015.
+ * Test for Library behaviour
  */
 public class LibraryTest extends TestCase{
 
@@ -27,6 +27,16 @@ public class LibraryTest extends TestCase{
         Book book=new Book("Sherlock Holmes", "Sir Canon Doyle","1990");
         lib.addBook(book);
         assertTrue(lib.getAllBooks().contains(book));
+        //removing this functionality breakage of encapsulation
+    }
+
+    public void testCheckOutBookShouldDeleteTheBookNameFromBookList() {
+        Book book=new Book("Sherlock Holmes", "Sir Canon Doyle","1990");
+        lib.addBook(book);
+        Book recievedBook = lib.getParticularBook("Sherlock Holmes");
+        assertTrue(book.equals(recievedBook));
+        assertFalse(lib.getAllBooks().contains(book));
+        assertEquals(0, lib.getAllBooks().size());
     }
 
 }
