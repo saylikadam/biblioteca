@@ -18,24 +18,25 @@ public class Biblioteca {
         System.out.println("----------------------------------------");
     }
 
-    public void startApp(String args){
-        Customer customer;
-        try {
-            customer = new Customer(args);
-            System.out.println(customer.getWelcomeMessage());
-            menuHandler();
+    public void startApp(Customer customer){
+        while(true){
+            try {
+                System.out.println(customer.getWelcomeMessage());
+                menuHandler();
 
-        } catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("No Customer Found");
-       }
+            } catch(ArrayIndexOutOfBoundsException e){
+                System.out.println("No Customer Found");
+            }
+        }
     }
 
     private void menuHandler() {
         Scanner scan = new Scanner(System.in);
-
-        while (true) {
+        try {
             printMenuOption();
             optionHandler(scan.nextInt());
+        }catch(Exception e){
+            System.out.println("OOPS!!! Some unknown error occurred!!\n" + e);
         }
     }
 
@@ -51,8 +52,10 @@ public class Biblioteca {
             case 1:
                 printTitle();
                 printBookDetails();
+                return;
             case 2:
                 System.exit(0);
         }
     }
+
 }
