@@ -19,22 +19,16 @@ public class Biblioteca {
     }
 
 
-    public void startApp(String args){
+    public void startApp(Customer customer){
         library = new Library("Thoughtworks");
-        Customer customer;
-        try {
-            customer = new Customer(args);
-            System.out.println(customer.getWelcomeMessage());
-            List<Book> books = library.initiateLibrary();
-            if (books == null) {
-                System.out.println("Select a valid option");
-            }
-            else {
-                printTitle();
-                printBookDetails();
-            }
-        } catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("No Customer Found");
+        System.out.println(customer.getWelcomeMessage());
+        List<Book> books = library.initiateLibrary();
+        if (books == null) {
+            System.out.println("Select a valid option");
+        }
+        else {
+            printTitle();
+            printBookDetails();
         }
     }
 }
