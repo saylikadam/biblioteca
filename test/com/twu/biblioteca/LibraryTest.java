@@ -20,6 +20,7 @@ public class LibraryTest extends TestCase{
         expected.add(new Book("Ramayana", "Maharshi Valmiki", "700"));
         expected.add(new Book("Five Point Someone", "Chetan Bhagat", "1990"));
         assertTrue(expected.containsAll(bookList));
+//        assertTrue(expected.containsAll(lib.actOn("List Books")));
     }
 
     public void testAddBookShouldAddABookToLibrary(){
