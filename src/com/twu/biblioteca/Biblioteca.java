@@ -4,9 +4,10 @@ import java.util.List;
 
 public class Biblioteca {
 
+    Library library;
+
     private void printBookDetails() {
-        Library l = new Library("TW");
-        List<Book> allBooks = l.initiateLibrary();
+        List<Book> allBooks = library.initiateLibrary();
         for (Book b : allBooks) {
             System.out.println(b.bookDetails());
         }
@@ -19,12 +20,12 @@ public class Biblioteca {
 
 
     public void startApp(String args){
-        Library lib = new Library("Thoughtworks");
+        library = new Library("Thoughtworks");
         Customer customer;
         try {
             customer = new Customer(args);
             System.out.println(customer.getWelcomeMessage());
-            List<Book> books = lib.initiateLibrary();
+            List<Book> books = library.initiateLibrary();
             if (books == null) {
                 System.out.println("Select a valid option");
             }
