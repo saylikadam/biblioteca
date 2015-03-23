@@ -35,12 +35,8 @@ public class Book {
         return result;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Book{" +
-//                "name='" + name + '\'' +
-//                ", writer='" + writer + '\'' +
-//                ", year='" + year + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return name+"    "+writer+"    "+year;
+    }
 }

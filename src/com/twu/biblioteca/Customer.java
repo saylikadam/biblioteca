@@ -12,6 +12,6 @@ public class Customer {
     }
 
     public String getWelcomeMessage() {
-        return "Hello " + name + ", Welcome To Biblioteca";
+        return "Hello " + name + ", Welcome To Biblioteca\n";
     }
 }
