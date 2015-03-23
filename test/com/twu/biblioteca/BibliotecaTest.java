@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
+import junit.framework.TestCase;
 
-
-        import junit.framework.TestCase;
 
 public class BibliotecaTest extends TestCase {
 
