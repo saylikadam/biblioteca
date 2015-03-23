@@ -6,9 +6,9 @@ public class BibliotecaApp {
 
     public static void printBookDetails(){
         Library l = new Library("TW");
-        List<Book> allBooks=l.getAllBooks();
+        List<Book> allBooks=l.initiateLibrary();
         for(Book b:allBooks){
-            System.out.println(b);
+            System.out.println(b.bookDetails());
         }
     }
 

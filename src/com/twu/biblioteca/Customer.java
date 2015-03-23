@@ -1,9 +1,5 @@
 package com.twu.biblioteca;
 
-/**
- * Created by saylik on 3/21/2015.
- * Customer class which contains the behaviour of the user
- */
 public class Customer {
     private String name;
 
