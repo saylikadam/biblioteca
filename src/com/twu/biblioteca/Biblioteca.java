@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Biblioteca {
 
@@ -17,23 +18,41 @@ public class Biblioteca {
         System.out.println("----------------------------------------");
     }
 
-
     public void startApp(String args){
-        Library lib = new Library("Thoughtworks");
         Customer customer;
         try {
             customer = new Customer(args);
             System.out.println(customer.getWelcomeMessage());
-            List<Book> books = lib.initiateLibrary();
-            if (books == null) {
-                System.out.println("Select a valid option");
-            }
-            else {
-                printTitle();
-                printBookDetails();
-            }
+            menuHandler();
+
         } catch(ArrayIndexOutOfBoundsException e){
             System.out.println("No Customer Found");
+       }
+    }
+
+    private void menuHandler() {
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            printMenuOption();
+            optionHandler(scan.nextInt());
+        }
+    }
+
+    private void printMenuOption(){
+        StringBuilder menu = new StringBuilder();
+        menu.append("1. List Books\n");
+        menu.append("2. Quit\n");
+        System.out.println(menu);
+    }
+
+    private void optionHandler(int option) {
+        switch(option){
+            case 1:
+                printTitle();
+                printBookDetails();
+            case 2:
+                System.exit(0);
         }
     }
 }
