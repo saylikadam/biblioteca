@@ -8,7 +8,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library lib = new Library("Thoughtworks");
-        lib.addBook(new Book("HP", "JK Rowling"));
+//        lib.addBook(new Book("HP", "JK Rowling"));
         Customer customer;
 
         try {

@@ -20,11 +20,17 @@ public class Library {
 
 
     public Library(String name) {
-//        this.bookList = new ArrayList<Book>();
         this.name = name;
     }
 
     public List<Book> getAllBooks() {
         return bookList;
+    }
+
+    public List<Book> actOn(String option) {
+        if(option.equals("List Books")){
+            return bookList;
+        }
+        return null;
     }
 }
