@@ -30,6 +30,6 @@ public class Book {
     }
 
     public boolean isName(String bookName) {
-        return name == bookName;
+        return name.equals(bookName);
     }
 }

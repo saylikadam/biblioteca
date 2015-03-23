@@ -5,9 +5,12 @@ import java.util.Scanner;
 
 public class Biblioteca {
 
+    private Librarian librarian;
+    private Library library;
+    private Customer customer;
+
     private void printBookDetails() {
-        Library l = new Library("TW");
-        List<Book> allBooks = l.initiateLibrary();
+        List<Book> allBooks = library.getAllBooks();
         for (Book b : allBooks) {
             System.out.println(b.bookDetails());
         }
@@ -19,9 +22,14 @@ public class Biblioteca {
     }
 
     public void startApp(Customer customer){
+        this.customer = customer;
+        library = new Library("ThoughtWorks");
+        library.initiateLibrary();
+        librarian = new Librarian("Vikas", library);
+        System.out.println(customer.getWelcomeMessage());
+
         while(true){
             try {
-                System.out.println(customer.getWelcomeMessage());
                 menuHandler();
 
             } catch(ArrayIndexOutOfBoundsException e){
@@ -39,7 +47,8 @@ public class Biblioteca {
     private void printMenuOption(){
         StringBuilder menu = new StringBuilder();
         menu.append("1. List Books\n");
-        menu.append("2. Quit\n");
+        menu.append("2. Checkout Book\n");
+        menu.append("3. Quit\n");
         System.out.println(menu);
     }
 
@@ -50,6 +59,11 @@ public class Biblioteca {
                 printBookDetails();
                 return;
             case 2:
+                System.out.println("Enter the book name here : ");
+                Scanner scan = new Scanner(System.in);
+                customer.receivedBook(librarian.getBook(scan.nextLine()));
+                return;
+            case 3:
                 System.exit(0);
         }
     }
