@@ -59,13 +59,23 @@ public class Biblioteca {
                 printBookDetails();
                 return;
             case 2:
-                System.out.println("Enter the book name here : ");
-                Scanner scan = new Scanner(System.in);
-                customer.receivedBook(librarian.getBook(scan.nextLine()));
+                checkoutBook();
                 return;
             case 3:
                 System.exit(0);
         }
+    }
+
+    private void checkoutBook() {
+        System.out.println("Enter the book name here : ");
+        Scanner scan = new Scanner(System.in);
+        Book issuedBook = librarian.getBook(scan.nextLine());
+        if (issuedBook != null) {
+            customer.receivedBook(issuedBook);
+            System.out.println("Thank you, Enjoy the book");
+        }
+
+        else System.out.println("That book is not available");
     }
 
 }

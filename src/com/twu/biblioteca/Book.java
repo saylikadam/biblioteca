@@ -20,9 +20,8 @@ public class Book {
         Book book = (Book) o;
 
         if (name != null ? !name.equals(book.name) : book.name != null) return false;
-        if (writer != null ? !writer.equals(book.writer) : book.writer != null) return false;
+        return !(writer != null ? !writer.equals(book.writer) : book.writer != null);
 
-        return true;
     }
 
     public String bookDetails() {
