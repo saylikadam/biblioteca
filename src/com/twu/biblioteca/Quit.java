@@ -15,6 +15,7 @@ public class Quit implements Option {
 
     @Override
     public void execute() {
+        System.out.println("Thank You! Keep Reading Books.");
         System.exit(0);
     }
 }
