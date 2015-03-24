@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class Biblioteca {
     public void startApp(Customer customer){
         this.customer = customer;
         library = new Library("ThoughtWorks");
-        library.initiateLibrary();
+        initiateLibrary("data/books");
         librarian = new Librarian("Vikas", library);
         System.out.println(customer.getWelcomeMessage());
 
@@ -36,6 +37,25 @@ public class Biblioteca {
                 System.out.println("No Customer Found");
             }
         }
+    }
+
+    private void initiateLibrary(String books) {
+        FileScanner fileScanner = new FileScanner("data/books");
+        String contents = fileScanner.read();
+        String[] lines = contents.split(System.lineSeparator());
+        for (String line : lines) {
+            String[] values = splitByComma(line);
+            library.initiateList(new Book(values[0], values[1], values[2]));
+        }
+    }
+
+    private String[] splitByComma(String line) {
+        String[] words = line.split(",");
+        String[] updatedWords = new String[words.length];
+        for (int count = 0; count < words.length; count++) {
+            updatedWords[count] = words[count].trim();
+        }
+        return updatedWords;
     }
 
     private void menuHandler() {
