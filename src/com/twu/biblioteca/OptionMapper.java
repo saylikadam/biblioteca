@@ -17,6 +17,7 @@ public class OptionMapper {
     private void initiateList(Library library, Librarian librarian) {
         options.add(new BookList(library, librarian));
         options.add(new BookCheckOut(library, librarian));
+        options.add(new ReturnBook(library,librarian));
         options.add(new Quit(library, librarian));
     }
 

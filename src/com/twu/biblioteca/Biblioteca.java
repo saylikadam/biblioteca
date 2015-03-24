@@ -16,11 +16,9 @@ public class Biblioteca {
         initiateLibrary();
         librarian = new Librarian("Vikas", library);
         System.out.println(customer.getWelcomeMessage());
-
         while(true){
             try {
                 menuHandler();
-
             } catch(ArrayIndexOutOfBoundsException e){
                 System.out.println("No Customer Found");
             }
@@ -56,7 +54,8 @@ public class Biblioteca {
         StringBuilder menu = new StringBuilder();
         menu.append("1. List Books\n");
         menu.append("2. Checkout Book\n");
-        menu.append("3. Quit\n");
+        menu.append("3. Return Book\n");
+        menu.append("4. Quit\n");
         System.out.println(menu);
     }
 

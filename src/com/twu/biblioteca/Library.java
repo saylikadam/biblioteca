@@ -30,14 +30,17 @@ public class Library {
     }
 
     private void addInList(Book book) {
-
         bookList.put(book.bookDetails(), true);
     }
 
     public Book getParticularBook(String bookName) {
         for (Book book : books) {
             if(book.isName(bookName)){
-                bookList.replace(book.bookDetails(), false);
+                if(bookList.get(book.bookDetails())) {
+                    bookList.replace(book.bookDetails(), false);
+                }
+                else
+                    bookList.replace(book.bookDetails(), true);
                 return book;
             }
         }

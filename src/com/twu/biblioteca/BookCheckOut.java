@@ -25,7 +25,7 @@ public class BookCheckOut implements Option {
         Book issuedBook = librarian.getBook(scan.nextLine());
         if (issuedBook != null) {
 //            customer.receivedBook(issuedBook);
-            System.out.println("Thank you, Enjoy the book");
+            System.out.println("Thank you, Enjoy the book\n");
         }
 
         else System.out.println("That book is not available");
