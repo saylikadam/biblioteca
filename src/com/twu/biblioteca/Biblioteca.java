@@ -10,9 +10,9 @@ public class Biblioteca {
     private Customer customer;
 
     private void printBookDetails() {
-        List<Book> allBooks = library.getAllBooks();
-        for (Book b : allBooks) {
-            System.out.println(b.bookDetails());
+        List<String> allBooks = library.getAvailableList();
+        for (String b : allBooks) {
+            System.out.println(b);
         }
     }
 
