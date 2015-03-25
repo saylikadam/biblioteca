@@ -8,7 +8,8 @@ public class Biblioteca {
         new BookRepository().initiateLibrary(library);
     }
 
-    public void startApp(){
+
+    private void startApp(){
         System.out.println(getWelcomeMessage());
         while(true){
             new Menu().menuHandler(library);
@@ -19,4 +20,13 @@ public class Biblioteca {
         return " Welcome To Biblioteca\n";
     }
 
+    public void run(String id ,String password) {
+        if(new Login().checkLogin(id,password)){
+            startApp();
+        }
+        else{
+            System.out.println("Wrong details...");
+            System.exit(0);
+        }
+    }
 }

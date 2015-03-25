@@ -16,7 +16,7 @@ public class Menu {
         menu.append("2. Checkout Book\n");
         menu.append("3. Return Book\n");
         menu.append("4. Quit\n\n\n");
-        menu.append("Enter your choice : \n");
+        menu.append("Enter your choice : ");
         System.out.println(menu);
     }
 
