@@ -5,10 +5,8 @@ import java.util.*;
 public class Library {
     private List<Book> books;
     private Map<String, Boolean> bookList;
-    private String name;
 
-    public Library(String name) {
-        this.name = name;
+    public Library() {
         books = new ArrayList<Book>();
         bookList = new HashMap<String, Boolean>();
     }
@@ -33,17 +31,23 @@ public class Library {
         bookList.put(book.bookDetails(), true);
     }
 
-    public Book getParticularBook(String bookName) {
+    public Book getBook(String bookName) {
         for (Book book : books) {
-            if(book.isName(bookName)){
-                if(bookList.get(book.bookDetails())) {
-                    bookList.replace(book.bookDetails(), false);
-                }
-                else
-                    bookList.replace(book.bookDetails(), true);
+            if(book.isName(bookName) && bookList.get(book.bookDetails())){
+                bookList.replace(book.bookDetails(), false);
                 return book;
             }
         }
         return null;
+    }
+
+    public boolean returnBook(String bookName) {
+        for (Book book : books) {
+            if(book.isName(bookName) && !bookList.get(book.bookDetails())){
+                bookList.replace(book.bookDetails(), true);
+                return true;
+            }
+        }
+        return false;
     }
 }

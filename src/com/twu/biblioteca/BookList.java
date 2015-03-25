@@ -8,12 +8,10 @@ import java.util.List;
 public class BookList implements Option {
 
     private Library library;
-    private Librarian librarian;
 
-    public BookList(Library library, Librarian librarian) {
+    public BookList(Library library) {
 
         this.library = library;
-        this.librarian = librarian;
     }
 
     @Override
@@ -24,9 +22,11 @@ public class BookList implements Option {
 
     private void printBookDetails() {
         List<String> allBooks = library.getAvailableList();
-        for (String b : allBooks) {
-            System.out.println(b);
+        for (String bookDetail : allBooks) {
+            System.out.println(bookDetail);
         }
+
+        System.out.println(System.lineSeparator());
     }
 
     private void printTitle() {

@@ -10,15 +10,15 @@ public class OptionMapper {
 
     private List<Option> options = new ArrayList<Option>();
 
-    OptionMapper(Library library, Librarian librarian) {
-        initiateList(library, librarian);
+    OptionMapper(Library library) {
+        initiateList(library);
     }
 
-    private void initiateList(Library library, Librarian librarian) {
-        options.add(new BookList(library, librarian));
-        options.add(new BookCheckOut(library, librarian));
-        options.add(new ReturnBook(library,librarian));
-        options.add(new Quit(library, librarian));
+    private void initiateList(Library library) {
+        options.add(new BookList(library));
+        options.add(new BookCheckOut(library));
+        options.add(new ReturnBook(library));
+        options.add(new Quit());
     }
 
     public Option getExecutive(int option) {
