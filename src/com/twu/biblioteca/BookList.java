@@ -7,10 +7,11 @@ import java.util.List;
  */
 public class BookList implements Option {
 
+    private final String name;
     private Library library;
 
-    public BookList(Library library) {
-
+    public BookList(String name, Library library) {
+        this.name = name;
         this.library = library;
     }
 
@@ -18,6 +19,11 @@ public class BookList implements Option {
     public void execute() {
         printTitle();
         printBookDetails();
+    }
+
+    @Override
+    public String getOptionName() {
+        return name;
     }
 
     private void printBookDetails() {

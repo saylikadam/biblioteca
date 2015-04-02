@@ -5,9 +5,21 @@ package com.twu.biblioteca;
  */
 public class Quit implements Option {
 
+    private final String name;
+
+    public Quit(String name) {
+
+        this.name = name;
+    }
+
     @Override
     public void execute() {
         System.out.println("Thank You! Keep Reading Books.");
         System.exit(0);
+    }
+
+    @Override
+    public String getOptionName() {
+        return name;
     }
 }

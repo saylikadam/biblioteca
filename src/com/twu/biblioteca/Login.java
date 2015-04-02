@@ -5,8 +5,15 @@ package com.twu.biblioteca;
  */
 public class Login {
 
+    private String loginPath;
+
+    public Login(String loginPath) {
+
+        this.loginPath = loginPath;
+    }
+
     public boolean checkLogin(String id, String password) {
-        FileScanner fs = new FileScanner("data/Login");
+        FileScanner fs = new FileScanner(loginPath);
         String Content = fs.read();
         String []Lines = Content.split("\r\n");
         String idPassword =  id+","+password;

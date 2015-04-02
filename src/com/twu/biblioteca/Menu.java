@@ -6,18 +6,14 @@ public class Menu {
 
     public void menuHandler(Library library) {
         Scanner scan = new Scanner(System.in);
-        printMenuOption();
+        printMenuOption(library);
         optionHandler(scan.nextInt(), library);
     }
 
-    private void printMenuOption() {
-        StringBuilder menu = new StringBuilder();
-        menu.append("1. List Books\n");
-        menu.append("2. Checkout Book\n");
-        menu.append("3. Return Book\n");
-        menu.append("4. Quit\n\n\n");
-        menu.append("Enter your choice : ");
-        System.out.println(menu);
+    private void printMenuOption(Library library) {
+        StringBuilder options = new OptionMapper(library).getOptionList();
+        options.append("Enter your choice : ");
+        System.out.println(options);
     }
 
     private void optionHandler(int option, Library library) {
