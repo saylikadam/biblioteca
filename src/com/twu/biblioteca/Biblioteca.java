@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class Biblioteca {
     private Library library;
 
@@ -15,7 +17,9 @@ public class Biblioteca {
         System.out.println(getWelcomeMessage());
 
         while(true){
-            new Menu().menuHandler(library);
+            int choice = new Scanner(System.in).nextInt();
+            library.showMenuList();
+            library.actOn(choice);
         }
     }
 

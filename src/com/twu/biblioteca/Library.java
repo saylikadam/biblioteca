@@ -3,12 +3,15 @@ package com.twu.biblioteca;
 import java.util.*;
 
 public class Library {
+    private final Menu menu;
     private List<Book> books;
     private Map<String, Boolean> bookList;
+
 
     public Library() {
         books = new ArrayList<Book>();
         bookList = new HashMap<String, Boolean>();
+        menu = new Menu();
     }
 
     public List<String> getAvailableList() {
@@ -49,5 +52,13 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public void showMenuList() {
+        System.out.println(menu.getContextMenu(this));
+    }
+
+    public void actOn(int choice) {
+        menu.menuHandler(this, choice);
     }
 }
